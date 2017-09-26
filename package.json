@@ -1,0 +1,27 @@
+{
+  "name": "canvas-syncing-assignment-part1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./src/server.js",
+    "pretest": "eslint ./src --fix",
+    "test": "echo \"Tests complete\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CScavone96/canvas-syncing-assignment-part1.git"
+  },
+  "author": "Clayton Scavone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CScavone96/canvas-syncing-assignment-part1/issues"
+  },
+  "homepage": "https://github.com/CScavone96/canvas-syncing-assignment-part1#readme"
+}

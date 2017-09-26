@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
     <script type="text/babel" >
-        "use strict";
-    
+        "use strict"; 
+        let socket = null;
+        const connectSocket = (e) => {
+            socket = io.connect();                                      
+        };
+        const setupSocket = () =>{
+            socket.on('updateValue', (data) =>{
+                console.log(data);
+                const value = data.value;
+                console.log(value);
+                document.getElementById("valueLabel").innerHTML = "Value is: " + value;
+            });
+            
+            socket.on('clearValue', (data) => {
+                document.getElementById("valueLabel").innerHTML = "";
+            });
+        }
+        
+        const sendMessage = () => {;
+            let messageData = {
+                message: 5
+            };
+            socket.emit('serverUpdate', messageData);
+        };
+        
+        const init = () => {
+            connectSocket();
+            setupSocket();
+            sendMessage();
+            setInterval(sendMessage, 2000)
+        };
+        window.onload = init;
     </script>
 </head>
 <body>
-
+    <label id="valueLabel">Value is:</label>
 </body>
 </html>
